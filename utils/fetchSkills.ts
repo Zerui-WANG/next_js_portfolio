@@ -1,10 +1,16 @@
 import { Skill } from "@/typings";
 
 export const fetchSkills = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/getSkills`);
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/getSkills`
+    ).then((res) => res.json());
 
-  const data = await res.json();
-  const skills: Skill[] = data.skills;
+    const skills: Skill[] = res.skills;
 
-  return skills;
+    return skills;
+  } catch (err) {
+    console.error(err);
+  }
+  return null;
 };

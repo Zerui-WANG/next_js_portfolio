@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import SkillBadge from "./SkillBadge";
 
 type Props = {
-  skills: SkillType[];
+  skills: SkillType[] | null;
 };
 
 const Skills = ({ skills }: Props) => {

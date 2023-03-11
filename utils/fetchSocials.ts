@@ -1,10 +1,16 @@
 import { Social } from "@/typings";
 
 export const fetchSocials = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/getSocials`);
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/getSocials`
+    ).then((res) => res.json());
 
-  const data = await res.json();
-  const socials: Social[] = data.socials;
+    const socials: Social[] = res.socials;
 
-  return socials;
+    return socials;
+  } catch (err) {
+    console.error(err);
+  }
+  return null;
 };

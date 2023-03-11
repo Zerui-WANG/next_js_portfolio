@@ -4,7 +4,7 @@ import { PageInfo } from "@/typings";
 import { motion } from "framer-motion";
 
 type Props = {
-  pageInfo: PageInfo;
+  pageInfo: PageInfo | null;
 };
 
 const About = ({ pageInfo }: Props) => {

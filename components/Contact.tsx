@@ -1,4 +1,4 @@
-import { myEmail, myPhoneNumber } from "@/utils/contactInformations";
+import { PageInfo } from "@/typings";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { AiOutlineMail } from "react-icons/ai";
 import { BsTelephone } from "react-icons/bs";
@@ -10,12 +10,16 @@ type Inputs = {
   message: string;
 };
 
-const Contact = () => {
+type Props = {
+  pageInfo: PageInfo | null;
+}
+
+const Contact = ({pageInfo}: Props) => {
   const { register, handleSubmit } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = (formData) => {
     console.log(formData);
-    window.location.href = `mailto:${myEmail}?subject=${formData.subject}&body=Hi, my name is ${formData.name}. ${formData.message} \n ${formData.email}`;
+    window.location.href = `mailto:${pageInfo?.email}?subject=${formData.subject}&body=Hi, my name is ${formData.name}. ${formData.message} \n ${formData.email}`;
   };
 
   return (
@@ -34,12 +38,12 @@ const Contact = () => {
         <div className="space-y-10">
           <div className="flex items-center space-x-5 justify-center">
             <AiOutlineMail className="text-[#F7AB0A] h-7 w-7 animate-pulse" />
-            <p className="text-2xl">{myEmail}</p>
+            <p className="text-2xl">{pageInfo?.email}</p>
           </div>
 
           <div className="flex items-center space-x-5 justify-center">
             <BsTelephone className="text-[#F7AB0A] h-7 w-7 animate-pulse" />
-            <p className="text-2xl">{myPhoneNumber}</p>
+            <p className="text-2xl">{pageInfo?.phoneNumber}</p>
           </div>
         </div>
 

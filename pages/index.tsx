@@ -16,11 +16,11 @@ import { Inter } from "next/font/google";
 import Head from "next/head";
 
 type Props = {
-  pageInfo: PageInfo;
-  experiences: Experience[];
-  skills: Skill[];
-  projects: Project[];
-  socials: Social[];
+  pageInfo: PageInfo | null;
+  experiences: Experience[] | null;
+  skills: Skill[] | null;
+  projects: Project[] | null;
+  socials: Social[] | null;
 };
 
 const inter = Inter({ subsets: ["latin"] });
@@ -35,7 +35,7 @@ export default function Home({
   return (
     <div className="bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80">
       <Head>
-        <title>{pageInfo?.name}&apos;s portfolio</title>
+        <title>Zerui WANG&apos;s portfolio</title>
       </Head>
       <Header socials={socials} />
       <section id="hero" className="snap-start">
@@ -54,18 +54,18 @@ export default function Home({
         <Projects projects={projects} />
       </section>
       <section id="contact" className="snap-start">
-        <Contact />
+        <Contact pageInfo={pageInfo} />
       </section>
     </div>
   );
 }
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const pageInfo: PageInfo = await fetchPageInfo();
-  const experiences: Experience[] = await fetchExperiences();
-  const skills: Skill[] = await fetchSkills();
-  const projects: Project[] = await fetchProjects();
-  const socials: Social[] = await fetchSocials();
+  const pageInfo: PageInfo | null = await fetchPageInfo();
+  const experiences: Experience[] | null = await fetchExperiences();
+  const skills: Skill[] | null = await fetchSkills();
+  const projects: Project[] | null = await fetchProjects();
+  const socials: Social[] | null = await fetchSocials();
 
   return {
     props: {
