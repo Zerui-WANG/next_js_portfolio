@@ -10,7 +10,7 @@ type Props = {
 };
 
 const Hero = ({ pageInfo }: Props) => {
-  const [text, count] = useTypewriter({
+  const [text] = useTypewriter({
     words: [
       `Hey, My Name's ${pageInfo?.name}`,
       "const frontEndDeveloper = new Boolean(true)",

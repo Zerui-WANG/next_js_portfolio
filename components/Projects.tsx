@@ -34,8 +34,8 @@ const Projects = ({ projects }: Props) => {
               className="object-cover w-64 h-64 md:w-44 md:h-w-44 xl:w-90 xl:h-w-90"
             >
               <Image
-                src={urlFor(project.image).url()}
-                alt={`${project.title} project screenshot`}
+                src={urlFor(project?.image).url()}
+                alt={`${project?.title} project screenshot`}
                 width={512}
                 height={512}
                 className="object-cover w-64 h-64 md:w-44 md:h-w-44 xl:w-90 xl:h-w-90"
@@ -47,11 +47,11 @@ const Projects = ({ projects }: Props) => {
                 <span className="underline decoration-[#F7AB0A]/50">
                   Case Study {i + 1} of {projects.length}:{" "}
                 </span>
-                <Link href={project.linkToBuild} className="text-[#F7AB0A]">{project.title}</Link>
+                <Link href={project?.linkToBuild} className="text-[#F7AB0A]">{project?.title}</Link>
               </h4>
 
               <div className="flex items-center space-x-2 justify-center">
-                {project.technologies.map((technology) => (
+                {project?.technologies.map((technology) => (
                   <Image
                     key={technology._id}
                     className="h-10 w-10"
@@ -64,7 +64,7 @@ const Projects = ({ projects }: Props) => {
               </div>
 
               <p className="text-lg text-center md:text-left">
-                {project.summary}
+                {project?.summary}
               </p>
             </div>
           </div>

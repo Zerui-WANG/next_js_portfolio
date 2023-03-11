@@ -19,7 +19,7 @@ const SkillBadge = ({ skill, directionLeft }: Props) => {
       >
         <Image
           src={urlFor(skill?.image).url()}
-          alt={`${skill.title} logo`}
+          alt={`${skill?.title} logo`}
           width={256}
           height={256}
         />

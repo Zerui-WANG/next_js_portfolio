@@ -1,8 +1,7 @@
-import React from "react";
-import { BsTelephone } from "react-icons/bs";
-import { AiOutlineMail } from "react-icons/ai";
-import { useForm, SubmitHandler } from "react-hook-form";
 import { myEmail, myPhoneNumber } from "@/utils/contactInformations";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { AiOutlineMail } from "react-icons/ai";
+import { BsTelephone } from "react-icons/bs";
 
 type Inputs = {
   name: string;
