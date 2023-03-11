@@ -5,6 +5,7 @@ import Hero from "@/components/Hero";
 import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
 import WorkExperience from "@/components/WorkExperience";
+import { sanityClient } from "@/sanity";
 import { Experience, PageInfo, Project, Skill, Social } from "@/typings";
 import { fetchExperiences } from "@/utils/fetchExperience";
 import { fetchPageInfo } from "@/utils/fetchPageInfo";
@@ -14,6 +15,11 @@ import { fetchSocials } from "@/utils/fetchSocials";
 import { GetStaticProps } from "next";
 import { Inter } from "next/font/google";
 import Head from "next/head";
+import { queryPageInfo } from "./api/getPageInfo";
+import { queryExperience } from "./api/getExperience";
+import { querySkills } from "./api/getSkills";
+import { queryProjects } from "./api/getProjects";
+import { querySocials } from "./api/getSocials";
 
 type Props = {
   pageInfo: PageInfo | null;
@@ -61,11 +67,17 @@ export default function Home({
 }
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const pageInfo: PageInfo | null = await fetchPageInfo();
-  const experiences: Experience[] | null = await fetchExperiences();
-  const skills: Skill[] | null = await fetchSkills();
-  const projects: Project[] | null = await fetchProjects();
-  const socials: Social[] | null = await fetchSocials();
+  // const pageInfo: PageInfo | null = await fetchPageInfo();
+  // const experiences: Experience[] | null = await fetchExperiences();
+  // const skills: Skill[] | null = await fetchSkills();
+  // const projects: Project[] | null = await fetchProjects();
+  // const socials: Social[] | null = await fetchSocials();
+  
+  const pageInfo: PageInfo | null = await sanityClient.fetch(queryPageInfo);
+  const experiences: Experience[] | null = await sanityClient.fetch(queryExperience);
+  const skills: Skill[] | null = await sanityClient.fetch(querySkills);
+  const projects: Project[] | null = await sanityClient.fetch(queryProjects);
+  const socials: Social[] | null = await sanityClient.fetch(querySocials);
 
   return {
     props: {
