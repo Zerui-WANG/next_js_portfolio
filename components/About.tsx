@@ -1,4 +1,3 @@
-import LolIcon from "!@svgr/webpack!../public/icons8-league-of-legends.svg";
 import { urlFor } from "@/sanity";
 import { PageInfo } from "@/typings";
 import { motion } from "framer-motion";
@@ -34,7 +33,23 @@ const About = ({ pageInfo }: Props) => {
           <span className="underline decoration-[#F7AB0A]/50 italic">I</span>?
         </h4>
         <p className="text-base">
-          {pageInfo?.backgroundInformation}
+          Hi, I&apos;m a front-end developer, issued from a Master IKSEM
+          (Information Knowledge Systems Engineering & Management) at University
+          Panthéon-Sorbonne Paris 1.
+        </p>
+        <p>
+          My current main focus is on building efficient and user-friendly
+          interfaces using ReactJS. As a developer, I&apos;m committed to
+          constantly learning and growing, both personally and professionally.
+        </p>
+        <p>
+          When I&apos;m not coding, I enjoy boxing 🥊 to maintain a healthy
+          lifestyle and playing League of Legends to climb the elo hell.
+        </p>
+
+        <p>
+          If you&apos;re interested in discussing a project or just want to
+          chat, feel free to reach out to me.
         </p>
       </div>
     </motion.div>

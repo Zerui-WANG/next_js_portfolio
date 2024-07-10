@@ -29,7 +29,7 @@ const Contact = ({pageInfo}: Props) => {
       </h3>
       <div className="flex flex-col space-y-10">
         <h4 className="text-4xl font-semibold text-center">
-          I have got just what you need.{" "}
+          I have got just what you need?{" "}
           <span className="decoration-[#F7AB0A]/50 underline">
             Let&apos; Talk.
           </span>
